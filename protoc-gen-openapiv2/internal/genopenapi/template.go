@@ -1547,8 +1547,19 @@ func renderServices(services []*descriptor.Service, paths openapiPathsObject, re
 						copy(operationObject.Produces, opts.Produces)
 					}
 
-					if params := opts.Parameters; params != nil && len(params.Headers) > 0 {
-						for _, header := range params.Headers {
+					tag, err := getServiceOpenAPIOption(reg, svc)
+					if err != nil {
+						panic(err)
+					}
+					headers := tag.Headers
+					if headers == nil || len(headers) == 0 {
+						if params := opts.Parameters; params != nil && len(params.Headers) > 0 {
+							headers = params.Headers
+						}
+					}
+
+					if headers != nil && len(headers) > 0 {
+						for _, header := range headers {
 							param := openapiParameterObject{
 								In:          "header",
 								Name:        header.Name,

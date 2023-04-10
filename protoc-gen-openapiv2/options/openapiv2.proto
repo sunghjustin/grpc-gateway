@@ -598,6 +598,9 @@ message Tag {
   // extra functionality that is not covered by the standard OpenAPI Specification.
   // See: https://swagger.io/docs/specification/2-0/swagger-extensions/
   map<string, google.protobuf.Value> extensions = 4;
+  // `Headers` is one or more HTTP header parameter.
+  // See: https://swagger.io/docs/specification/2-0/describing-parameters/#header-parameters
+  repeated HeaderParameter headers = 5;
 }
 
 // `SecurityDefinitions` is a representation of OpenAPI v2 specification's
