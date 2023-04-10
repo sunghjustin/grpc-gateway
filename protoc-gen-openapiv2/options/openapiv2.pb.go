@@ -373,12 +373,12 @@ func (SecurityScheme_Flow) EnumDescriptor() ([]byte, []int) {
 //      description: "";
 //      contact: {
 //        name: "gRPC-Gateway project";
-//        url: "https://github.com/grpc-ecosystem/grpc-gateway";
+//        url: "https://github.com/sunguohua/grpc-ecosystem/grpc-gateway";
 //        email: "none@example.com";
 //      };
 //      license: {
 //        name: "BSD 3-Clause License";
-//        url: "https://github.com/grpc-ecosystem/grpc-gateway/blob/main/LICENSE.txt";
+//        url: "https://github.com/sunguohua/grpc-ecosystem/grpc-gateway/blob/main/LICENSE.txt";
 //      };
 //    };
 //    schemes: HTTPS;
@@ -1111,12 +1111,12 @@ func (x *Response) GetExtensions() map[string]*_struct.Value {
 //      description: "";
 //      contact: {
 //        name: "gRPC-Gateway project";
-//        url: "https://github.com/grpc-ecosystem/grpc-gateway";
+//        url: "https://github.com/sunguohua/grpc-ecosystem/grpc-gateway";
 //        email: "none@example.com";
 //      };
 //      license: {
 //        name: "BSD 3-Clause License";
-//        url: "https://github.com/grpc-ecosystem/grpc-gateway/blob/main/LICENSE.txt";
+//        url: "https://github.com/sunguohua/grpc-ecosystem/grpc-gateway/blob/main/LICENSE.txt";
 //      };
 //    };
 //    ...
@@ -1239,7 +1239,7 @@ func (x *Info) GetExtensions() map[string]*_struct.Value {
 //      ...
 //      contact: {
 //        name: "gRPC-Gateway project";
-//        url: "https://github.com/grpc-ecosystem/grpc-gateway";
+//        url: "https://github.com/sunguohua/grpc-ecosystem/grpc-gateway";
 //        email: "none@example.com";
 //      };
 //      ...
@@ -1326,7 +1326,7 @@ func (x *Contact) GetEmail() string {
 //      ...
 //      license: {
 //        name: "BSD 3-Clause License";
-//        url: "https://github.com/grpc-ecosystem/grpc-gateway/blob/main/LICENSE.txt";
+//        url: "https://github.com/sunguohua/grpc-ecosystem/grpc-gateway/blob/main/LICENSE.txt";
 //      };
 //      ...
 //    };
@@ -1401,7 +1401,7 @@ func (x *License) GetUrl() string {
 //    ...
 //    external_docs: {
 //      description: "More about gRPC-Gateway";
-//      url: "https://github.com/grpc-ecosystem/grpc-gateway";
+//      url: "https://github.com/sunguohua/grpc-ecosystem/grpc-gateway";
 //    }
 //    ...
 //  };

@@ -35,7 +35,7 @@ func (s *serviceServer) Watch(in *health.HealthCheckRequest, _ health.Health_Wat
 }
 ```
 
-3. You can test the functionality with [GRPC health probe](https://github.com/grpc-ecosystem/grpc-health-probe).
+3. You can test the functionality with [GRPC health probe](https://github.com/sunguohua/grpc-ecosystem/grpc-health-probe).
 
 ## Adding `/healthz` endpoint to runtime.ServeMux
 
