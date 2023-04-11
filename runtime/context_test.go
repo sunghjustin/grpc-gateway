@@ -8,7 +8,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/sunguohua/grpc-ecosystem/grpc-gateway/v2/runtime"
+	"github.com/sunguohua/grpc-gateway/v2/runtime"
 	"google.golang.org/grpc/metadata"
 )
 

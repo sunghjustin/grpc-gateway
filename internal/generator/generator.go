@@ -2,7 +2,7 @@
 package generator
 
 import (
-	"github.com/sunguohua/grpc-ecosystem/grpc-gateway/v2/internal/descriptor"
+	"github.com/sunguohua/grpc-gateway/v2/internal/descriptor"
 )
 
 // Generator is an abstraction of code generators.

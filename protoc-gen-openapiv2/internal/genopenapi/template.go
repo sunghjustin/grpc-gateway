@@ -18,9 +18,9 @@ import (
 	"time"
 
 	"github.com/golang/glog"
-	"github.com/sunguohua/grpc-ecosystem/grpc-gateway/v2/internal/casing"
-	"github.com/sunguohua/grpc-ecosystem/grpc-gateway/v2/internal/descriptor"
-	openapi_options "github.com/sunguohua/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2/options"
+	"github.com/sunguohua/grpc-gateway/v2/internal/casing"
+	"github.com/sunguohua/grpc-gateway/v2/internal/descriptor"
+	openapi_options "github.com/sunguohua/grpc-gateway/v2/protoc-gen-openapiv2/options"
 	"google.golang.org/genproto/googleapis/api/annotations"
 	"google.golang.org/genproto/googleapis/api/visibility"
 	"google.golang.org/protobuf/encoding/protojson"

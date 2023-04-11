@@ -7,8 +7,8 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/sunguohua/grpc-ecosystem/grpc-gateway/v2/runtime"
-	pb "github.com/sunguohua/grpc-ecosystem/grpc-gateway/v2/runtime/internal/examplepb"
+	"github.com/sunguohua/grpc-gateway/v2/runtime"
+	pb "github.com/sunguohua/grpc-gateway/v2/runtime/internal/examplepb"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 	"google.golang.org/protobuf/proto"

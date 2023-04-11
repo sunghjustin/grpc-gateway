@@ -7,4 +7,4 @@ parent: Overview
 
 # How do I use this?
 
-Follow the [instructions](https://github.com/sunguohua/grpc-ecosystem/grpc-gateway#usage) in the [README](https://github.com/sunguohua/grpc-ecosystem/grpc-gateway#readme).
+Follow the [instructions](https://github.com/sunguohua/grpc-gateway#usage) in the [README](https://github.com/sunguohua/grpc-gateway#readme).

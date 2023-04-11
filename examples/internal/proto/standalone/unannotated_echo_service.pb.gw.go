@@ -13,9 +13,9 @@ import (
 	"io"
 	"net/http"
 
-	extExamplepb "github.com/sunguohua/grpc-ecosystem/grpc-gateway/v2/examples/internal/proto/examplepb"
-	"github.com/sunguohua/grpc-ecosystem/grpc-gateway/v2/runtime"
-	"github.com/sunguohua/grpc-ecosystem/grpc-gateway/v2/utilities"
+	extExamplepb "github.com/sunguohua/grpc-gateway/v2/examples/internal/proto/examplepb"
+	"github.com/sunguohua/grpc-gateway/v2/runtime"
+	"github.com/sunguohua/grpc-gateway/v2/utilities"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/grpclog"

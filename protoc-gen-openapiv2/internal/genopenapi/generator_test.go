@@ -4,8 +4,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/sunguohua/grpc-ecosystem/grpc-gateway/v2/internal/descriptor"
-	"github.com/sunguohua/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2/internal/genopenapi"
+	"github.com/sunguohua/grpc-gateway/v2/internal/descriptor"
+	"github.com/sunguohua/grpc-gateway/v2/protoc-gen-openapiv2/internal/genopenapi"
 	"gopkg.in/yaml.v3"
 
 	"google.golang.org/protobuf/encoding/prototext"
@@ -155,7 +155,7 @@ func requireGenerate(
 }
 
 func TestGeneratedYAMLIndent(t *testing.T) {
-	// It tests https://github.com/sunguohua/grpc-ecosystem/grpc-gateway/issues/2745.
+	// It tests https://github.com/sunguohua/grpc-gateway/issues/2745.
 	const in = `
 	file_to_generate: "exampleproto/v1/exampleproto.proto"
 	parameter: "output_format=yaml,allow_delete_body=true"
