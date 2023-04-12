@@ -1051,15 +1051,20 @@ func renderServiceTags(services []*descriptor.Service, reg *descriptor.Registry)
 			return nil
 		}
 		if opts != nil {
-			tag.Description = opts.Description
-			if opts.ExternalDocs != nil {
-				tag.ExternalDocs = &openapiExternalDocumentationObject{
-					Description: opts.ExternalDocs.Description,
-					URL:         opts.ExternalDocs.Url,
+			for _, desc := range opts.Module {
+				tag.Name = desc.Name
+				tag.Description = desc.Description
+				if opts.ExternalDocs != nil {
+					tag.ExternalDocs = &openapiExternalDocumentationObject{
+						Description: opts.ExternalDocs.Description,
+						URL:         opts.ExternalDocs.Url,
+					}
 				}
+				tags = append(tags, tag)
 			}
+		} else {
+			tags = append(tags, tag)
 		}
-		tags = append(tags, tag)
 	}
 	return tags
 }
@@ -1077,6 +1082,12 @@ func renderServices(services []*descriptor.Service, paths openapiPathsObject, re
 		if !isVisible(getServiceVisibilityOption(svc), reg) {
 			continue
 		}
+
+		tag, err := getServiceOpenAPIOption(reg, svc)
+		if err != nil {
+			panic(err)
+		}
+		headers := tag.Headers
 
 		for methIdx, meth := range svc.Methods {
 			if !isVisible(getMethodVisibilityOption(meth), reg) {
@@ -1411,11 +1422,11 @@ func renderServices(services []*descriptor.Service, paths openapiPathsObject, re
 				}
 
 				if !reg.GetDisableServiceTags() {
-					tag := svc.GetName()
+					tagName := svc.GetName()
 					if pkg := svc.File.GetPackage(); pkg != "" && reg.IsIncludePackageInTags() {
-						tag = pkg + "." + tag
+						tagName = pkg + "." + tagName
 					}
-					operationObject.Tags = []string{tag}
+					operationObject.Tags = []string{tagName}
 				}
 
 				if !reg.GetDisableDefaultErrors() {
@@ -1547,11 +1558,6 @@ func renderServices(services []*descriptor.Service, paths openapiPathsObject, re
 						copy(operationObject.Produces, opts.Produces)
 					}
 
-					tag, err := getServiceOpenAPIOption(reg, svc)
-					if err != nil {
-						panic(err)
-					}
-					headers := tag.Headers
 					if headers == nil || len(headers) == 0 {
 						if params := opts.Parameters; params != nil && len(params.Headers) > 0 {
 							headers = params.Headers
@@ -1915,7 +1921,20 @@ func applyTemplate(p param) (*openapiSwaggerObject, error) {
 		if spb.Tags != nil {
 			for _, v := range spb.Tags {
 				newTag := openapiTagObject{}
-				newTag.Name = v.Name
+				for _, desc := range v.Module {
+					newTag.Name = desc.Name
+					newTag.Description = desc.Description
+					if v.Extensions != nil {
+						exts, err := processExtensions(v.Extensions)
+						if err != nil {
+							return nil, err
+						}
+						newTag.extensions = exts
+					}
+					s.Tags = append(s.Tags, newTag)
+				}
+
+				/*newTag.Name = v.Name
 				newTag.Description = v.Description
 				if v.ExternalDocs != nil {
 					newTag.ExternalDocs = &openapiExternalDocumentationObject{
@@ -1930,7 +1949,7 @@ func applyTemplate(p param) (*openapiSwaggerObject, error) {
 					}
 					newTag.extensions = exts
 				}
-				s.Tags = append(s.Tags, newTag)
+				s.Tags = append(s.Tags, newTag)*/
 			}
 		}
 

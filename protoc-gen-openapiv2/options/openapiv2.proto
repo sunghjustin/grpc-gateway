@@ -585,6 +585,19 @@ message JSONSchema {
 // See: https://github.com/OAI/OpenAPI-Specification/blob/3.0.0/versions/2.0.md#tagObject
 //
 message Tag {
+  repeated TagModule module = 1;
+  // Additional external documentation for this tag.
+  ExternalDocumentation external_docs = 2;
+  // Custom properties that start with "x-" such as "x-foo" used to describe
+  // extra functionality that is not covered by the standard OpenAPI Specification.
+  // See: https://swagger.io/docs/specification/2-0/swagger-extensions/
+  map<string, google.protobuf.Value> extensions = 3;
+  // `Headers` is one or more HTTP header parameter.
+  // See: https://swagger.io/docs/specification/2-0/describing-parameters/#header-parameters
+  repeated HeaderParameter headers = 4;
+}
+
+message TagModule {
   // The name of the tag. Use it to allow override of the name of a
   // global Tag object, then use that name to reference the tag throughout the
   // OpenAPI file.
@@ -592,15 +605,6 @@ message Tag {
   // A short description for the tag. GFM syntax can be used for rich text
   // representation.
   string description = 2;
-  // Additional external documentation for this tag.
-  ExternalDocumentation external_docs = 3;
-  // Custom properties that start with "x-" such as "x-foo" used to describe
-  // extra functionality that is not covered by the standard OpenAPI Specification.
-  // See: https://swagger.io/docs/specification/2-0/swagger-extensions/
-  map<string, google.protobuf.Value> extensions = 4;
-  // `Headers` is one or more HTTP header parameter.
-  // See: https://swagger.io/docs/specification/2-0/describing-parameters/#header-parameters
-  repeated HeaderParameter headers = 5;
 }
 
 // `SecurityDefinitions` is a representation of OpenAPI v2 specification's
