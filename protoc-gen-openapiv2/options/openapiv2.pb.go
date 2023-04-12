@@ -7,7 +7,7 @@
 package options
 
 import (
-	_struct "github.com/golang/protobuf/ptypes/struct"
+	_struct "google.golang.org/protobuf/types/known/structpb"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
